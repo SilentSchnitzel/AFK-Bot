@@ -1,0 +1,2 @@
+# AFK Bot
+This is a simeple C console project that serves the purpose of a way for me to learn C. This project will allow the user to select an OS and how long the program is to run for. The program will then move the mouse cursor at the end of every time interval(eg: 1 minute).
