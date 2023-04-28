@@ -2,21 +2,24 @@
 #include <stdlib.h>
 #include <time.h>
 
-int user_input();
 int linux_mouse_mover();
+int get_os();
+int get_minutes();
+int get_interval();
 
 int main()
 {
     int os, minutes, interval;
-    os, minutes, interval = user_input();
-
+    os = get_os();
+    minutes = get_minutes();
+    interval = get_interval();
+    
     srand(time(NULL));
     
     time_t seconds;
     seconds = time(NULL);
     time_t min = seconds / 60;
 
-    printf("%d", os);
     if(os == 1)
     {
 
