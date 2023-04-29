@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 
 int linux_mouse_mover();
 int get_os();
@@ -16,9 +17,11 @@ int main()
     
     srand(time(NULL));
     
-    time_t seconds;
-    seconds = time(NULL);
-    time_t min = seconds / 60;
+    time_t start_time = time(NULL);
+    time_t current_time = start_time;
+    int elapsed_seconds = 0;
+    int x = 0;
+    
 
     if(os == 1)
     {
@@ -27,14 +30,20 @@ int main()
 
     if(os == 2)
     {
-        printf("yooo");
-        while((time(NULL)/60) - min == (time_t)minutes)
+        while(elapsed_seconds < minutes * 60)
         {
-            printf("help");
+            current_time = time(NULL);
+            elapsed_seconds = (int) difftime(current_time, start_time);
+            printf("%d", elapsed_seconds % interval);
+            if(elapsed_seconds % interval == 0)
+            {
+                linux_mouse_mover();
+                sleep(interval);
+            }
+            
         }
-        linux_mouse_mover();
+        return 0;
     }
-
     printf("Invalid input\n");
     return 0;
 }

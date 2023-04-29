@@ -1,9 +1,21 @@
 #include <stdio.h>
-#include <X11/Xlib.h>
+//#include <X11/Xlib.h>
 #include <stdlib.h>
+#ifdef __has_include
+#if __has_include(<X11/Xlib.h>)
+#include <X11/Xlib.h>
+#else
+#define INCLUDE_INVALID
+#endif
+#ifdef INCLUDE_INVALID
+#error "X11 library not found"
+#endif
+#endif
 
 int linux_mouse_mover()
 {
+    
+
     int x = rand() % 2401;
     int y = rand() % 1001;
 
