@@ -21,5 +21,5 @@ cd afk_bot_windows
 
 2. compile the afk bot program
 ```
-g++ -o afk-bot main.c
+gcc -o afk-bot main.c afk_bot/input.c afk_bot/move_mouse.c
 ```
