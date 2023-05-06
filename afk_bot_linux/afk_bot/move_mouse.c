@@ -1,5 +1,4 @@
 #include <stdio.h>
-//#include <X11/Xlib.h>
 #include <stdlib.h>
 #ifdef __has_include
 #if __has_include(<X11/Xlib.h>)
